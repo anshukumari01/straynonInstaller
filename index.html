@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>STRAYNON — Install & Download</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"><img src="logo.png" alt="Straynon logo"></div>
+        <div>
+          <div class="title">STRAYNON</div>
+          <div class="tag">Focus mode • Sprint manager</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <button class="btn-secondary" id="openManualBtn" aria-haspopup="dialog">User Manual</button>
+        <button class="btn-secondary" id="openPrivacyBtn" aria-haspopup="dialog">Privacy</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <h1 id="hero-title" class="headline">Work with deeper focus. Less distractions. Better sprints.</h1>
+          <p class="lead">Straynon launches a lightweight unlock-resume helper and a local sprint manager — fast, private, and easy to install.</p>
+
+          <div class="meta">
+            <div>Version <strong>1.0.0</strong></div>
+            <div class="dot">•</div>
+            <div>Windows 10/11</div>
+            <div class="dot">•</div>
+            <div>No telemetry</div>
+          </div>
+
+          <div class="features">
+            <div class="feature">
+              <h4>Unlock-resume helper</h4>
+              <p>Resume or create a sprint right after unlocking your machine.</p>
+            </div>
+            <div class="feature">
+              <h4>Local-first</h4>
+              <p>Data stays on your machine by default; you control everything.</p>
+            </div>
+            <div class="feature">
+              <h4>Small & fast</h4>
+              <p>Single EXE installer; optimized for low memory use.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="cta-area">
+          <a class="btn-primary" id="download" href="https://github.com/anshukumari01/Straynon/releases/download/Straynon/StraynonInstaller.exe" download>
+            ⤓ Download STRAYNON
+          </a>
+
+          <div class="cta-row">
+            <a class="btn-secondary" href="#howto">How to install</a>
+            <a class="btn-secondary" href="#faq">FAQ</a>
+          </div>
+
+          <div class="small-note">Installer places Straynon in Local AppData and optionally adds a Desktop shortcut.</div>
+        </aside>
+      </section>
+
+      <!-- HOWTO + DEBUG (two-column compact card layout) -->
+      <section id="howto" class="howto-row">
+        <div class="card steps">
+          <h3>Install Steps</h3>
+          <ol>
+            <li>Download the installer and run the EXE.</li>
+            <li>Accept the default install location or choose your folder.</li>
+            <li>Allow creating a Desktop shortcut if you want quick access.</li>
+            <li>Launch Straynon and log in.</li>
+            <li>Enable Focus Mode — this will enable the unlock task (only while Focus Mode is ON).</li>
+            <li>To capture tab titles/URLs, Browser must be launched with remote debugging</li>
+          </ol>
+          <p class="muted">Tip: If the unlock window doesn’t appear after enabling Focus Mode, check Task Scheduler and confirm the "StraynonOnUnlock" task shows as Enabled.</p>
+        </div>
+
+        <div class="card debug">
+          <h3>Browser tab tracking</h3>
+          <p class="muted">Enable it if you want Browser tab tracking.</p>
+          <div class="debug-block">
+            <label class="mono-label">Create Desktop shortcut</label>
+            <ol class="muted small">
+              <li>Right-click Desktop → New → Shortcut.</li>
+              <li>Paste the full command below (including quotes) as the shortcut target.</li>
+              <li>Name it e.g. <strong>Chrome (Debug)</strong> and Finish.</li>
+            </ol>
+            <code style="display:inline-block;background:rgba(0,0,0,0.45);padding:6px;border-radius:6px;margin-top:6px;">"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="%LOCALAPPDATA%\ChromeDebugProfile"</code>
+
+            <label class="mono-label">Quick notes</label>
+            <ul class="muted small">
+              <li>`--user-data-dir` creates an isolated profile — your normal Browser profile is not modified.</li>
+              <li>Remote debugging opens a local port (9222). Do not expose this to untrusted networks.</li>
+            </ul>
+
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- IMAGES: compact 3-card row with hover title overlay -->
+      <section class="image-section" aria-label="Screenshots">
+        <!-- Replace filenames below with your local image files -->
+        <figure class="img-card" tabindex="0">
+          <img src="Desktop.png" alt="Desktop shortcut & launch">
+          <figcaption class="img-caption">Dashboard</figcaption>
+        </figure>
+        <figure class="img-card" tabindex="0">
+          <img src="Start-no-sprint.png" alt="Desktop shortcut & launch">
+          <figcaption class="img-caption">Unlock prompt — create sprint</figcaption>
+        </figure>
+
+        <figure class="img-card" tabindex="0">
+          <img src="Start-sprint.png" alt="Start menu / pinned app">
+          <figcaption class="img-caption">Unlock prompt — resume / create sprint</figcaption>
+        </figure>
+
+        <figure class="img-card" tabindex="0">
+          <img src="Timer.png" alt="Unlock prompt / resume sprint">
+          <figcaption class="img-caption">Timer</figcaption>
+        </figure>
+      </section>
+
+      <!-- FAQ full-width -->
+      <section id="faq" class="faq card">
+        <h3>Frequently asked questions</h3>
+
+        <div class="qa-row">
+          <div class="q">Does the installer require admin?</div>
+          <div class="a">Yes — Creating a scheduled task for unlock prompt requires admin access.</div>
+        </div>
+
+        <div class="qa-row">
+          <div class="q">Where is my data stored?</div>
+          <div class="a">Local DB stored under your user profile (%APPDATA%). Email credentials used by the app are app-level SMTP credentials for OTP delivery only.</div>
+        </div>
+
+        <div class="qa-row">
+          <div class="q">Can I uninstall fully?</div>
+          <div class="a">Yes — uninstall removes program files and the scheduled task.</div>
+        </div>
+
+        <div class="qa-row">
+          <div class="q">Why does Chrome need debugging?</div>
+          <div class="a">Chrome’s remote debug flag allows local apps to read tab titles and active tab data — optional and manual only.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>© STRAYNON</div>
+      <div class="footer-links">
+        <a class="nav-link" href="#howto">How to install</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <button class="btn-secondary" id="openManualBtnFooter">User Manual</button>
+        <button class="btn-secondary" id="openPrivacyBtnFooter">Privacy</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== Modal: User Manual ===== -->
+<div id="manualModal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <div class="manual-card">
+
+    <!-- LEFT: Gallery -->
+    <div class="gallery">
+
+      <div class="gallery-top">
+        <span class="walk-title">Walkthrough</span>
+        <span class="walk-hint">Use ← / → or arrows to navigate</span>
+      </div>
+
+      <!-- IMAGE AREA with fixed ratio (22:15) -->
+      <div class="gallery-viewport">
+        <img id="galleryImage" src="SCREENSHOT_1.png" alt="Step 1">
+      </div>
+
+      <!-- CAPTION + ARROWS -->
+      <div class="gallery-row">
+        <span id="galleryCaption" class="caption">1 / 3 — Install prompt</span>
+
+        <div class="arrow-box">
+          <span id="prevBtn" class="arrow-btn">←</span>
+          <span id="nextBtn" class="arrow-btn">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: User Manual -->
+    <div class="manual-right">
+      <h2>User Manual</h2>
+
+      <div class="manual-step">
+        <strong>Step 1 — Install</strong>
+        Run the installer and follow the prompts. Choose Desktop shortcut for quick access.
+      </div>
+
+      <div class="manual-step">
+        <strong>Step 2 — Launch & Sign in</strong>
+        Open Straynon from Desktop. Create an account.
+      </div>
+
+      <div class="manual-step">
+        <strong>Step 3 — Enable Focus Mode</strong>
+        Turn on Focus Mode — this enables the unlock helper task.
+      </div>
+
+      <div class="manual-step">
+        <strong>Step 4 — Using Unlock Prompt</strong>
+        After unlocking, a small card appears to resume or start a sprint quickly.
+      </div>
+
+      <!-- Bottom-right CLOSE button -->
+      <button id="closeManualBtn" class="manual-close-btn">Close</button>
+
+    </div>
+
+  </div>
+</div>
+
+  <!-- ===== Modal: Privacy Policy ===== -->
+  <div id="privacyModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal-card" role="document" style="grid-template-columns:1fr">
+      <button class="close-btn" aria-label="Close privacy" id="closePrivacyBtn">✕</button>
+      <div>
+        <h2 id="privacyTitle">Privacy Policy — Summary</h2>
+        <p class="muted">Straynon is local-first. Default data storage is local only. App includes SMTP credentials used purely for OTP delivery when a user requests password reset.</p>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn-secondary" id="closePrivacyBtn2">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== JS ===== -->
+  <script>
+  (function(){
+    // modal helpers
+    const manualModal = document.getElementById('manualModal');
+    const privacyModal = document.getElementById('privacyModal');
+    const openManualBtn = document.getElementById('openManualBtn');
+    const openPrivacyBtn = document.getElementById('openPrivacyBtn');
+    const closeManualBtn = document.getElementById('closeManualBtn');
+    const closePrivacyBtn = document.getElementById('closePrivacyBtn');
+    const closePrivacyBtn2 = document.getElementById('closePrivacyBtn2');
+
+    function showModal(el){
+      el.classList.add('show'); document.body.style.overflow = 'hidden';
+      const f = el.querySelector('button, a, [tabindex]') || el; if(f) f.focus();
+    }
+    function hideModal(el){
+      el.classList.remove('show'); document.body.style.overflow = '';
+    }
+
+    openManualBtn.addEventListener('click', ()=> showModal(manualModal));
+    closeManualBtn.addEventListener('click', ()=> hideModal(manualModal));
+    openPrivacyBtn.addEventListener('click', ()=> showModal(privacyModal));
+    closePrivacyBtn.addEventListener('click', ()=> hideModal(privacyModal));
+    closePrivacyBtn2 && closePrivacyBtn2.addEventListener('click', ()=> hideModal(privacyModal));
+
+    [manualModal, privacyModal].forEach(mod => {
+      mod.addEventListener('click', (ev) => { if(ev.target === mod) hideModal(mod); });
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape'){ if(manualModal.classList.contains('show')) hideModal(manualModal); if(privacyModal.classList.contains('show')) hideModal(privacyModal); }
+    });
+
+    // gallery inside modal (3 images)
+    const images = [
+      { src: '1-loginsignup.png', caption: 'Login and Signup window' },
+      { src: '2-reset.png', caption: 'Steps to reset password' },
+      { src: '3-dashboard.png', caption: 'Activity dashboard with Focus mode switch' },
+      { src: '4-Unlock.png', caption: 'Unlock Prompt and Start Sprint / Relax Mode' },
+      { src: '5-start sprint.png', caption: 'Select apps/ tabs required for the task and start print' },
+      { src: '6- Focus mode.png', caption: 'Edit / Switch / Finish Sprint' }
+    ];
+    let idx = 0;
+    const imgEl = document.getElementById('galleryImage');
+    const captionEl = document.getElementById('galleryCaption');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateGallery(){
+      const item = images[idx];
+      imgEl.src = item.src; imgEl.alt = item.caption;
+      captionEl.textContent = (idx+1) + ' / ' + images.length + ' — ' + item.caption;
+    }
+    prevBtn.addEventListener('click', () => { idx = (idx - 1 + images.length) % images.length; updateGallery(); });
+    nextBtn.addEventListener('click', () => { idx = (idx + 1) % images.length; updateGallery(); });
+    document.addEventListener('keydown', (e) => { if(manualModal.classList.contains('show')){ if(e.key === 'ArrowLeft') prevBtn.click(); if(e.key === 'ArrowRight') nextBtn.click(); }});
+    updateGallery();
+
+    // footer buttons map to header buttons
+    document.getElementById('openManualBtnFooter')?.addEventListener('click', function(e){ e.preventDefault(); openManualBtn.click(); });
+    document.getElementById('openPrivacyBtnFooter')?.addEventListener('click', function(e){ e.preventDefault(); openPrivacyBtn.click(); });
+
+    // keyboard accessibility: allow Enter/Space on image figures to open modal gallery at that index
+    document.querySelectorAll('.image-section .img-card').forEach((fig, i) => {
+      fig.addEventListener('click', ()=> { idx = i; updateGallery(); showModal(manualModal); });
+      fig.addEventListener('keydown', (e)=> { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); idx = i; updateGallery(); showModal(manualModal); }});
+    });
+  })();
+  </script>
+</body>
+</html>
